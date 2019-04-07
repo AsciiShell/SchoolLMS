@@ -1,0 +1,14 @@
+cache:
+    - apt
+before_install:
+    - sudo apt-get update -qq
+    - sudo apt-get install -y texlive texlive-xetex
+script:
+    - xelatex -synctex=1 -interaction=nonstopmode Text/main.tex
+deploy:
+  provider: releases
+  api_key: "315f243ac83855e1ff028a8afe815cf0ce2c8b79"
+  file: "Text/main.pdf"
+  skip_cleanup: true
+  on:
+    tags: true
