@@ -5,7 +5,7 @@ before_install:
     - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber lmodern
 script:
     - cd Text   
-    - run.sh
+    - bash ./run.sh
     - cd ..
 deploy:
   provider: releases
