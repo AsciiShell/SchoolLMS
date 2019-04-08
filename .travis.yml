@@ -1,8 +1,12 @@
+# safelist
+branches:
+  only:
+  - master
 cache:
     - apt
 before_install:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber lmodern
+    - sudo apt-get update
+    - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber ttf-mscorefonts-installer
 script:
     - cd Text   
     - bash ./run.sh
