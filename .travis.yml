@@ -11,7 +11,7 @@ before_install:
   - docker pull niccokunzmann/ci-latex
 
 script:
-  - docker run -v "`pwd`:/thesis" --rm -it niccokunzmann/ci-latex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
+  - docker run -v "`pwd`:/Text" --rm -it niccokunzmann/ci-latex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
 
 deploy:
   provider: releases
