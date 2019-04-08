@@ -9,7 +9,7 @@ services:
 
 before_install:
   - docker pull niccokunzmann/ci-latex
-
+  - sudo apt-get install -y fontconfig freetype freetype-devel fontconfig-devel libstdc++
 script:
   - docker run -v "`pwd`:/Text" --rm -it niccokunzmann/ci-latex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
 
