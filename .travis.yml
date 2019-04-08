@@ -1,7 +1,7 @@
 # safelist
-branches:
-  only:
-  - master
+#branches:
+#  only:
+#  - master
 language: ruby  
 
 services:
@@ -18,5 +18,5 @@ deploy:
   api_key: $TOKEN
   file: "Text/main.pdf"
   skip_cleanup: true
-  on:
-    branch: master
+#on:
+  ##    branch: master
