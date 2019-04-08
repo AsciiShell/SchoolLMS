@@ -1,3 +1,4 @@
+dist: xenial
 # safelist
 branches:
   only:
