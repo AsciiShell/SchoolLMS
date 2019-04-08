@@ -1,19 +1,22 @@
-dist: xenial
 # safelist
 branches:
   only:
   - master
-cache:
-    - apt
+language: ruby  
+
+services:
+  - docker
+
 before_install:
-    - sudo apt-get update
-    - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber ttf-mscorefonts-installer texlive-fonts-recommended texlive-fonts-extra
+  - docker pull niccokunzmann/ci-latex
+
 script:
-    - cd Text   
-    - bash ./run.sh
-    - cd ..
+  - docker run -v "`pwd`:/thesis" --rm -it niccokunzmann/ci-latex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
+
 deploy:
   provider: releases
   api_key: $TOKEN
   file: "Text/main.pdf"
   skip_cleanup: true
+  on:
+    branch: master
