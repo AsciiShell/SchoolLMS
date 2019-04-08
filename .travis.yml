@@ -2,7 +2,7 @@ cache:
     - apt
 before_install:
     - sudo apt-get update -qq
-    - sudo apt-get install -y texlive-full
+    - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber
 script:
     - cd Text   
     - xelatex -synctex=1 -interaction=nonstopmode main.tex
