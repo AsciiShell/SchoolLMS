@@ -10,7 +10,7 @@ services:
 before_install:
   - docker pull moss/xelatex
 script:
-  - docker run --rm -v $(shell pwd):/Text moss/xelatex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
+  - docker run --rm -v $(pwd):/Text moss/xelatex  bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
 
 deploy:
   provider: releases
