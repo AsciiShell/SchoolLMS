@@ -5,11 +5,11 @@ before_install:
     - sudo apt-get install -y texlive texlive-xetex texlive-latex3 texlive-lang-cyrillic texlive-latex-extra texlive-bibtex-extra biber lmodern
 script:
     - cd Text   
-    - xelatex -synctex=1 -interaction=nonstopmode main.tex
+    - run.sh
     - cd ..
 deploy:
   provider: releases
-  api_key: "315f243ac83855e1ff028a8afe815cf0ce2c8b79"
+  api_key: $TOKEN
   file: "Text/main.pdf"
   skip_cleanup: true
   on:
