@@ -1,7 +1,7 @@
 # safelist
-branches:
-  only:
-    - master
+#branches:
+#  only:
+#    - master
 language: bash
 
 services:
@@ -18,4 +18,4 @@ deploy:
   file: "Text/main.pdf"
   skip_cleanup: true
   on:
-    branch: master
+    branch: master stable_intro stable_s1 stable_s2 stable_s3 stable_s4 stable_results
