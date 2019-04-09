@@ -13,9 +13,45 @@ script:
   - docker run --rm  -it -v $(pwd)/Text:/source/Text hubbitus/latex bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
 
 deploy:
-  provider: releases
-  api_key: $TOKEN
-  file: "Text/main.pdf"
-  skip_cleanup: true
-  on:
-    branch: master stable_intro stable_s1 stable_s2 stable_s3 stable_s4 stable_results
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_intro
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_s1
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_s2      
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_s3
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_s4
+  - provider: releases
+    api_key: $TOKEN
+    file: "Text/main.pdf"
+    skip_cleanup: true
+    on:
+      branch: stable_results
