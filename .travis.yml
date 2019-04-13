@@ -10,7 +10,7 @@ services:
 before_install:
   - docker pull hubbitus/latex
 script:
-  - docker run --rm  -it -v $(pwd)/Text:/source/Text hubbitus/latex bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
+  - docker run --rm  -it -v $(pwd)/Text:/source/Text hubbitus/latex bash -c 'cd Text; sudo apt-get install graphviz; bash main.sh'
 
 deploy:
   - provider: releases
