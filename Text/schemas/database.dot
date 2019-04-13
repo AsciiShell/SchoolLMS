@@ -1,0 +1,26 @@
+digraph database {
+
+layout=circo
+node[shape=record];
+rankdir="BT";
+
+course [label = "{<f0> course|<f1>  ...}"];
+ruz_group [label = "{<f0> ruz_group}"];
+ruz_scheduler [label = "{<f0> ruz_scheduler|\
+<f1> discipline|\
+<f2> date|\
+<f3> beginLesson|\
+<f4> endLesson|\
+<f5> building|\
+<f6> auditorium|\
+<f7> kindOfWork|\
+<f8> lecturer|\
+<f9> stream}"];
+
+
+ruz_group->course [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1"];
+
+ruz_group->ruz_scheduler [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+
+}
+

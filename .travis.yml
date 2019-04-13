@@ -10,7 +10,7 @@ services:
 before_install:
   - docker pull hubbitus/latex
 script:
-  - docker run --rm  -it -v $(pwd)/Text:/source/Text hubbitus/latex bash -c 'cd Text; xelatex -synctex=1 -interaction=nonstopmode main.tex'
+  - docker run -u root --rm  -it -v $(pwd):/source hubbitus/latex bash ./build.sh
 
 deploy:
   - provider: releases
