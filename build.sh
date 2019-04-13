@@ -1,5 +1,4 @@
 cd Text
-add-apt-repository universe
 apt update
-apt install graphviz
+apt install -y graphviz
 bash main.sh
