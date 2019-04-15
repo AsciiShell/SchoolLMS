@@ -19,39 +19,3 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_intro
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_s1
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_s2      
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_s3
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_s4
-  - provider: releases
-    api_key: $TOKEN
-    file: "Text/main.pdf"
-    skip_cleanup: true
-    on:
-      branch: stable_results
