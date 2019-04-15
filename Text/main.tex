@@ -299,10 +299,94 @@ Moodle имеет богатую библиотеку плагинов, позв
 	\label{img:miemMail}
 \end{figure}
 
+\subsection{Интеграция с РУЗом}
+
+Одна из самых ресурсозатратных задач данной работы -- интегрировать взаимодействие с сервером расписаний учебных занятий для реализации поиска по группе и автоматического обновления расписания.
+Был произведён анализ трафика на странице \url[РУЗа]{https://ruz.hse.ru/ruz/main}, где была выявлена схема взаимодействия с backend-ом.
+Полученные данные были использованы для составления собственных запросов.
+Сервер возвращал информацию в формате JSON, поэтому не возникло трудностей с обработкой результата.
+Были созданы таблицы, реализованы методы для работы с базой данных и отправкой запросов на удалённый сервер.
+Кроме того, были свёрстаны страницы для красивого и удобного пользовательского интерфейса.
+
 % Описание экспериментов
 
 % Демонстрация
+\subsection{Демонстрация работы}
 
+Дополнительный интерфейс размещён по адресу \url{/ruz}, который разрешает доступ только авторизованным пользователям с правами администратора, в противном случае пользователю откажут в доступе (Рис. \ref{img:ui_login}).
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_login}
+	\caption{Страница входа}
+	\label{img:ui_login}
+\end{figure}
+
+В случае успешной авторизации пользователь попадает в панель администратора, на главной странице которой выведен список всех групп (Рис. \ref{img:ui_listOfGroups}).
+На данной странице можно перейти непосредственно к курсу, посмотреть его номер в РУЗе, записать пользователей с интересующей ролью (Рис. \ref{img:ui_enroll}), посмотреть расписание данной группы (Рис. \ref{img:ui_scheduler}) или перейти к редактированию.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_listOfGroups}
+	\caption{Главная страница -- обзор групп}
+	\label{img:ui_listOfGroups}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_enroll}
+	\caption{Форма записи на курс}
+	\label{img:ui_enroll}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_scheduler}
+	\caption{Форма просмотра расписание группы}
+	\label{img:ui_scheduler}
+\end{figure}
+
+На странице поиска групп, которая находится на \url{/ruz/findGroup.php} можно найти интересующие записи с помощью формы ввода названия группы, подходящие варианты будут отображены на экране (Рис. \ref{img:ui_search}) с возможностью сразу создать курс на основе данной группы (Рис. \ref{img:ui_newGroup}), однако для уже существующих групп такой возможности нет для обеспечения сохранения условий целостности системы.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_search}
+	\caption{Страница поиска группы}
+	\label{img:ui_search}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_newGroup}
+	\caption{Форма создания курса}
+	\label{img:ui_newGroup}
+\end{figure}
+
+Страница редактора группы (\url{/ruz/editGroup.php}) (Рис. \ref{img:ui_groupEditor}) позволят записать единичного пользователя (Рис. \ref{img:ui_newUser}) или перейти на страницу с возможностью загрузки нескольких пользователей одновременно.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_groupEditor}
+	\caption{Страница редактора группы }
+	\label{img:ui_groupEditor}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{image/ui_newUser}
+	\caption{Форма записи пользователя}
+	\label{img:ui_newUser}
+\end{figure}
+
+Для служебный действий или автоматизации с другими сервисами предусмотрен API по адресу \url{/ruz/api/*}.
+Доступные действия:
+\begin{itemize}
+	\item \url{/ruz/api/attachUser.php} -- записать пользователя на курс
+	\item \url{/ruz/api/createGroup.php} -- создать группу
+	\item \url{/ruz/api/createUser.php} -- создать пользователя
+	\item \url{/ruz/api/findGroup.php} -- найти группу в РУЗе
+	\item \url{/ruz/api/getGroup.php} -- получить группы
+	\item \url{/ruz/api/getUser.php} -- получить пользователей
+	\item \url{/ruz/api/ruzDisplay.php} -- отобразить расписание 
+	\item \url{/ruz/api/ruzFetch.php} -- получить свежее расписание с РУЗа (доступно так же в CLI режиме, автоматически выполняется через cron)
+\end{itemize}
 % Анализ результатов
 
 % Подтверждение актуальности
