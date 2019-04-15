@@ -246,3 +246,17 @@
 
 \RequirePackage{lscape}
 \usepackage{pdflscape}
+
+
+
+
+\usepackage[figure,table,page]{totalcount} 
+\usepackage{lastpage} 
+\makeatletter 
+\long\def\@secondoffour#1#2#3#4{#2} 
+\def\getlastpage{\ifx\r@LastPage\@undefined 0\else 
+	\expandafter\@secondoffour\r@LastPage\@empty\@empty\fi} 
+\makeatother 
+
+\usepackage{lipsum} 
+\usepackage{lastbib}
