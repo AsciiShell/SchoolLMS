@@ -5,6 +5,7 @@ node[shape=record];
 rankdir="BT";
 
 course [label = "{<f0> course|<f1>  ...}"];
+user [label = "{<f0> user|<f1>  ...}"];
 ruz_group [label = "{<f0> ruz_group}"];
 ruz_scheduler [label = "{<f0> ruz_scheduler|\
 <f1> discipline|\
@@ -16,11 +17,20 @@ ruz_scheduler [label = "{<f0> ruz_scheduler|\
 <f7> kindOfWork|\
 <f8> lecturer|\
 <f9> stream}"];
+ruz_lessons [label = "{<f0> ruz_lessons|<f1>  ...}"];
 
+ruz_visit [label = "{<f0> ruz_visit|<f1>  ...}"];
 
 ruz_group->course [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1"];
 
 ruz_group->ruz_scheduler [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
 
+ruz_group->ruz_lessons [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+
+ruz_lessons->ruz_scheduler [dir="forward",arrowhead="none",arrowtail="normal",headlabel="1",taillabel="1"];
+
+user->ruz_visit [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
+
+ruz_lessons->ruz_visit [dir="forward",arrowhead="none",arrowtail="normal",headlabel="N",taillabel="1"];
 }
 
