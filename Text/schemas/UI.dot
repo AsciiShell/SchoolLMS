@@ -13,6 +13,7 @@ b_scheduler [label = "Просмотр расписания"]
 b_add_g [label = "Добавить группу"]
 b_user_add [label = "Добавить пользователя"]
 m_bulk [label = "Множественное добавление пользователей" color=red]
+m_visits [label = "Управление посещаемостью"]
 
 list_g -> find_g;
 list_g -> edit_g;
@@ -27,5 +28,6 @@ list_g -> b_scheduler;
 find_g -> b_add_g;
 edit_g -> b_user_add;
 edit_g -> m_bulk;
+edit_g -> m_visits;
 }
 
